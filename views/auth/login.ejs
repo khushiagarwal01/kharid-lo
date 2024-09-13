@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/signupcss.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body >
+  <div class="main">
+    <header>
+        <%- include('../partials/navbar') %>
+    </header>
+    <div class="container">
+        
+        <div class="box-1">
+            <div class="content-holder">
+                <h2>Hello!</h2>
+                <button class="button-1" onclick="signup()">Sign up</button>
+                <button class="button-2" onclick="login()">Login</button>
+            </div>
+        </div>
+        <div class="box-2">
+            <div class="login-form-container">
+                <h1>Login Form</h1>
+                <form action="/login" method="post">
+                <input type="text" placeholder="Username" id="Email" name="username"  class="input-field">
+                <br><br>
+                <input type="password" placeholder="Password" id="Password" name="password"  class="input-field">
+                <br><br>
+                <button class="login-button" type="submit">Login</button>
+            </form>
+            </div>
+        <div class="signup-form-container">
+            <h1>Sign Up Form</h1>
+            <form action="/register" method="post">
+            <input type="text" placeholder="Username" id="Username" name="username" class="input-field">
+            <br><br>
+            <input type="email" placeholder="Email" id="Email" name="email" class="input-field">
+            <br><br>
+            <input type="password" placeholder="Password" id="Password" name="password" class="input-field">
+            <br><br>
+            <div class="mb-3">
+                <p class="mb-2">Want to register as ? </p>
+                <div class="mx-2">
+                    <label class="form-label" for="seller">Seller</label>
+                    <input class="form-check-input mt-0" type="radio" name="role" value="seller" id="seller" aria-label="Radio button for following text input">
+                </div>
+                <div class="mx-2">
+                    <label class="form-label" for="buyer">Buyer</label>
+                    <input class="form-check-input mt-0" type="radio" name="role" value="buyer"  id="buyer" aria-label="Radio button for following text input">
+                </div>
+               
+            </div>
+            <button class="signup-button" type="submit">Sign Up</button>
+        </form>
+        </div>
+    </div>
+    </div>
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="text-center">
+          <span class="text-muted">© 2024 Your Company. All rights reserved.</span>
+        </div>
+      </footer>
+    
+    </div>
+<script>
+    function signup()
+{
+    document.querySelector(".login-form-container").style.cssText = "display: none;";
+    document.querySelector(".signup-form-container").style.cssText = "display: block;";
+    document.querySelector(".container").style.cssText = "background: linear-gradient(to bottom,rgb(220, 191, 255),  rgb(208, 162, 247));";
+    document.querySelector(".button-1").style.cssText = "display: none";
+    document.querySelector(".button-2").style.cssText = "display: block";
+
+};
+
+function login()
+{
+    document.querySelector(".signup-form-container").style.cssText = "display: none;";
+    document.querySelector(".login-form-container").style.cssText = "display: block;";
+    document.querySelector(".container").style.cssText = "background: linear-gradient(to bottom, rgb(220, 191, 255),  rgb(208, 162, 247));";
+    document.querySelector(".button-2").style.cssText = "display: none";
+    document.querySelector(".button-1").style.cssText = "display: block";
+
+}
+function getQueryParam(name) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(name);
+}
+
+// Check if signup success message exists in the URL
+if (getQueryParam("signupSuccess")) {
+  alert("Successfully signed up!");
+}
+
+// Check if login success message exists in the URL
+if (getQueryParam("loginSuccess")) {
+  alert("Successfully logged in!");
+}
+
+// Check if login error message exists in the URL
+if (getQueryParam("loginError")) {
+  alert("Invalid email or password!");
+}
+</script>
+</body>
+</html>

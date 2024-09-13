@@ -1,0 +1,134 @@
+<style>
+  /* Custom CSS for hamburger menu icon */
+  .hamburger-icon {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      margin-right: 14px;
+      
+  }
+
+  /* Custom CSS for side menu */
+  .side-menu {
+      position: fixed;
+      top: 0;
+      left: -250px; /* Initially hide the side menu off the screen */
+      width: 250px;
+      height: 100%;
+      background-color: #E5D4FF; /* Adjust the background color as needed */
+      transition: left 0.3s ease; /* Add transition effect */
+      padding-top: 60px; /* Adjust padding to avoid overlapping with navbar */
+  }
+
+  .side-menu ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+  }
+
+  .side-menu ul li {
+      padding: 10px;
+      color: white;
+      
+  }
+
+  .side-menu ul li a {
+      color: #fff;
+      text-decoration: none;
+  }
+</style>
+
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #D0A2F7;">
+  <img src="" alt="Hamburger Icon" class="hamburger-icon" id="hamburgerIcon">
+  <a class="navbar-brand" href="/products">Kharid Lo</a> 
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link " href="/products">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about">About </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/faqs">FAQs </a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Filter By
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Rating</a></li>
+          <li><a class="dropdown-item" href="/price-low-to-high">Price:Low to High</a></li>
+          <li><a class="dropdown-item" href="/price-high-to-low">Price:High to Low</a></li>
+          <li><hr class="dropdown-divider"></li>
+        
+        </ul>
+      </li>
+
+    </ul>
+    <form class="d-flex" role="search" action="/search" method="post">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="value">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <div class="navbar-nav ml-auto">
+      
+      <%if(!currentUser){%>
+        <a href="/login" class="nav-link">Login</a> 
+      <%} else{%>
+        <a href="#" class="nav-link text-capitalize">Hello <%=currentUser.username%></i> 
+          <a href="/user/cart" class="nav-link"><i class="fas fa-shopping-cart"></i> 
+          <sup><span class="badge bg-danger"><%=currentUser.cart.length%></span></sup> 
+        </a>
+        <a href="/logout" class="nav-link">Logout</a>
+      <%}%>
+
+    </div>
+  </div>
+
+
+</nav>
+ 
+
+
+
+
+   <!-- Side menu content -->
+   <div class="side-menu" id="sideMenu">
+    <ul>
+        <li>
+            <a href="/products">Home</a>
+        </li>
+        <li>
+            <a href="">Profle</a>
+        </li>
+        <li>
+          <%if(currentUser){%>
+            <a href="/wallet">My Wallet : <%=currentUser.cashback%></a>
+            <%}else{%>
+              <a href="/wallet">My Wallet : 0</a>
+            <%}%>
+        </li>
+        <li>
+            <a href="/user/cart">Cart</a>
+        </li>
+        <li>
+            <a href="/myOrder">Order History</a>
+        </li>
+    </ul>
+    
+</div>
+
+<script>
+    // JavaScript to toggle side menu visibility
+    document.getElementById('hamburgerIcon').addEventListener('click', function() {
+        var sideMenu = document.getElementById('sideMenu');
+        if (sideMenu.style.left === '-250px') {
+            sideMenu.style.left = '0'; // Show the side menu
+        } else {
+            sideMenu.style.left = '-250px'; // Hide the side menu
+        }
+    });
+</script>
+

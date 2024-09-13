@@ -1,0 +1,147 @@
+<% layout("layouts/boilerplate") -%>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body {
+          margin: 0;
+          padding: 0;
+          font-family: Arial, sans-serif;
+          position: relative;
+          min-height: 100vh;
+      }
+      
+      .navbar {
+          background-color: #333;
+          color: #fff;
+          padding: 10px 20px;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+      }
+      
+      .container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: calc(100vh - 50px); /* Adjust height based on navbar height */
+          padding-top: 50px; /* Padding to prevent navbar from hiding content */
+      }
+      
+      .forming {
+          border: 1px solid black;
+          border-radius: 10px;
+          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+          padding: 40px;
+          width: 70%;
+          text-align: center;
+      }
+      
+      .input-group-text, .form-control, .dropdown {
+          text-align: center;
+          border: 0.5px solid black;
+      }
+      
+      .button {
+          background-color: #007bff;
+          border-color: #007bff;
+          margin-top: 20px;
+          text-align: center;
+          border-radius: 5px;
+          padding: 5px;
+          padding-left: 5px;
+          padding-right: 5px;
+      }
+      
+      .button:hover {
+          background-color: #0056b3;
+          border-color: #0056b3;
+      }
+      
+      .dropdown {
+          background-color: #fff;
+          border: 1px solid #ced4da;
+          border-radius: 5px;
+          padding: 8px 12px;
+          font-size: 16px;
+          width: 50%;
+          box-sizing: border-box;
+          appearance: none;
+      }
+      
+      .dropdown:focus {
+          outline: none;
+          border-color: #80bdff;
+          /* Focus border color */
+          box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+      }
+  </style>
+</head>
+<body>
+    
+    <div class="forming">
+      <h1>Edit product </h1>
+
+      <form action="/product/<%=product._id%>?_method=patch" method="POST">
+              <div class="input-group mb-3">
+        
+        <input type="text" class="form-control" placeholder="Product Name" name="name" aria-label="productname" aria-describedby="basic-addon1" value="<%= product.name%>">
+      </div>
+      
+      
+      <div class=" input-group mb-3">
+        <label for="basic-url" class="form-label">Product Image URL</label>
+        <div class="input-group mt-1">
+          <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4" name="img1" value="<%= product.img[0]%>">
+      </div>
+      <div class="input-group mt-1">
+          <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4" name="img2" value="<%= product.img[0]%>">
+      </div>
+      <div class="input-group mt-1">
+          <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4" name="img3" value="<%= product.img[0]%>">
+      </div>
+        <div class="form-text" id="basic-addon4">Example help text goes outside the input group.</div>  
+      </div>
+
+      <div class="input-group mb-3">
+        
+        <input type="number" class="form-control" placeholder="Product price" value="<%=product.price%>" name="price" aria-label="productprice" aria-describedby="basic-addon1">
+      </div>
+      
+      
+
+
+
+      
+      <div class="input-group mb-3">
+        <label for="dropdown">Status</label></div>
+       <div class="input-group mb-3"> <select name="dropdown" name="Stock Status" class="dropdown">
+            <option value="in stock">In Stock</option>
+            <option value="Out of stock">Out of Stock</option>
+       </select>
+      </div>
+
+      
+  
+
+      
+      
+      <div class="input-group">
+        <span class="input-group-text">Description</span>
+        <textarea class="form-control" name="desc" aria-label="Description" style="padding-bottom: 60px;"><%=product.desc%></textarea>
+      </div>
+<label for="submit"></label>
+<button type="submit">Submit</button>
+
+    </form>
+    </div>
+    
+</body>
+</html>

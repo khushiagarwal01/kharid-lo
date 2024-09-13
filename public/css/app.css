@@ -1,0 +1,52 @@
+:root{
+    --main-color:#D0A2F7;
+}
+
+main{
+    margin-top: 5.5rem;
+    
+}
+
+.products .card img{
+    height:190px;
+    padding: 10px;
+}
+
+.products .btn{
+    background-color: var(--main-color);
+    color:white;
+}
+
+.new{
+    margin-bottom: 15px;
+    margin-left: 500px;
+    background-color: #DCBFFF;
+    border-color: #DCBFFF;
+}
+
+.new:hover{
+    background-color: #D0A2F7;
+    border-color: #D0A2F7;
+}
+
+
+.small-img{
+    flex-direction: row;
+    margin-left: 30px;
+}
+.small-img img{
+  width:100px;
+  height:90px;
+  margin-top:5px;
+  background: linear-gradient(to right,#c72092,#6c14d0);
+  border-radius:6px;
+  box-shadow:0 0 6px rgba(0,0,0,0.6);
+  opacity:0.8;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+  }

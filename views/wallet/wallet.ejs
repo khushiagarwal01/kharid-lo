@@ -1,0 +1,14 @@
+<% layout('layouts/boilerplate') -%>
+
+
+
+
+<div>
+   
+   
+      <%if(currentUser){%>
+        <h4>You have total a cashback of <%=currentUser.cashback%></h4>
+    <%}else{%>
+            <h4>You have total a cashback of 0</h4>
+    <%}%> 
+</div>

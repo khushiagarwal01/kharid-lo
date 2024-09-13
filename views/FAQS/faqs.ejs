@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQs</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <link rel="stylesheet" href="/css/faqs.css">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <%- include('../partials/navbar') %>
+    </header>
+  
+    <h2 class="faq-container">"Frequently Asked Questions (FAQs)"</h2>
+  <div class="faq-container">
+    <div class="faq-item">
+      <div class="question">Question 1: What payment methods do you accept?</div>
+
+      <div class="answer">Answer 1: We accept Visa, MasterCard, American Express, PayPal, and bank transfers.</div>
+    </div>
+    <div class="faq-item">
+      <div class="question">Question 2: How can I track my order?</div>
+      <div class="answer">Answer 2: Once your order is shipped, you will receive a tracking number via email. You can use this tracking number to track your order on our website.</div>
+    </div>
+    <div class="faq-item">
+      <div class="question">Question 3: What should I do if I receive a damaged item?</div>
+      <div class="answer">Answer 3:We apologize for any inconvenience! Please contact our customer support team with a photo of the damaged item, and we'll promptly assist you with a replacement or refund.</div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="question">Question 4: Do you offer gift wrapping or special packaging for orders?</div>
+      <div class="answer">Answer 4:Absolutely! We offer beautiful gift wrapping options to add that extra special touch to your order. Just select the gift wrapping option during checkout.</div>
+    </div>
+    <div class="faq-item">
+      <div class="question">Question 5:Can I change or cancel my order after it has been placed?</div>
+      <div class="answer">Answer 5:We understand things can change. Please contact us as soon as possible, and we'll do our best to accommodate any changes or cancellations before your order is processed.</div>
+    </div>
+    <div class="faq-item">
+      <div class="question">Question 6: What is your return policy?</div>
+      <div class="answer">Answer 6:We want you to be completely satisfied with your purchase. If for any reason you're not, simply return the item within 7 daysfor a full refund or exchange. Please refer to our Returns & Exchanges page for more details.</div>
+    </div>
+    <div class="faq-item">
+      <div class="question">Question 7: Do you offer wholesale or bulk purchasing options?</div>
+      <div class="answer">Answer 7:Yes, we do! Contact our wholesale team for more information on bulk discounts and special pricing for large orders.</div>
+    </div>
+    <div class="faq-item">
+      <div class="question">Question 8: How do I know what size to order</div>
+      <div class="answer">Answer 8:Check out our detailed size guide provided on each product page to ensure the perfect fit. If you're still unsure, feel free to reach out to our customer support team for personalized sizing assistance.</div>
+    </div>
+    <div class="faq-item">
+      <div class="question">Question 9:
+        Do you offer discounts for bulk orders or repeat customers?
+        </div>
+      <div class="answer">Answer 9:Yes, we appreciate your loyalty! Sign up for our newsletter to receive exclusive discounts and promotions, and keep an eye out for special offers for repeat customers.</div>
+    </div>
+    <div class="faq-item">
+      <div class="question">Question 10: How often do you restock popular items?</div>
+      <div class="answer">Answer 10:We strive to keep our best-selling items in stock as much as possible. Sign up for restock notifications on the product page, and we'll notify you as soon as your favorite item is back in stock.</div>
+    </div>
+    <div class="faq-item">
+      <div class="question">Question 11: Do you have a loyalty program for frequent shoppers?</div>
+      <div class="answer">Answer 11:Yes, we do! Join our loyalty program to earn points on every purchase, which you can redeem for discounts on future orders.</div>
+    </div>
+    <div class="faq-item">
+      <div class="question">Question 12:What should I do if I receive the wrong item or size?</div>
+      <div class="answer">Answer 12:We apologize for any inconvenience! Please contact our customer support team, and we'll arrange for the correct item to be sent to you right away, along with a prepaid return label for the incorrect item.</div>
+    </div>
+    <div class="faq-item">
+      <div class="question">Question 13: What should I do if I receive the wrong item or size?</div>
+      <div class="answer">Answer 13:Duties and taxes may apply depending on your country's import regulations. These costs are not included in our shipping fees and are the responsibility of the recipient. We recommend checking with your local customs office for more information.</div>
+    </div>
+    <div class="additional-info-box">
+      <h3>Additional Information</h3>
+      <p>
+          Our company is committed to providing high-quality products and excellent customer service. If you have any questions or concerns not covered in the FAQ section, please don't hesitate to reach out to our support team. We're here to help you!
+      </p>
+      <p>
+          In addition to our online store, we also have physical locations in major cities where you can experience our products in person. Visit our store locator page for more information on finding a store near you.
+      </p>
+      <p>
+          Stay updated with the latest news, promotions, and product launches by subscribing to our newsletter. Don't miss out on exclusive offers and discounts!
+      </p>
+      <p>
+          Follow us on social media to join our community of happy customers. Share your experiences, tag us in your photos, and stay connected with us for exciting updates and giveaways.
+      </p>
+  </div>
+  
+  </div>
+  <footer class="footer mt-auto py-3 bg-light">
+    <div class="container text-center">
+      <span class="text-muted">© 2024 Your Company. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+    const questions = document.querySelectorAll('.question');
+    questions.forEach(question => {
+      question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<% layout("layouts/boilerplate") -%>
+
+<%if(currentUser && currentUser.role === 'seller'){%>
+  <a href="/product/new" class="btn btn-lg new" >New</a>
+  <%}%>
+<%- include('../partials/flash')  %> 
+
+<div class="row products">
+  <% for(let product of products){%>
+      <div class="col-lg-4 mb-3" style="height:30rem ;">
+        <div class="card text-center shadow-lg mx-auto" style="width: 18rem;">
+          <img src="<%= product.img%>" class="card-img-top" alt="..." style="object-fit:contain;">
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-center align-items-center text-center"><%= product.name%></h5>
+            <p class="card-text"><%= product.desc.substring(0,100)%>...</p>
+            <h5 class="card-title">$<%= product.price%></h5>
+            <a href="/products/<%=product._id%>" class="btn  btn-sm">Buy Now</a>
+          </div>
+        </div>
+      </div>
+  <%}%>
+  
+</div>
+  
